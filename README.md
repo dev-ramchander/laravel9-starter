@@ -62,3 +62,27 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<hr>
+
+Installaton.
+
+1. take pull and cd to your project
+2. composer require laravel/ui
+3. composer require laravel-frontend-presets/argon
+4. php artisan ui argon
+5. composer update or composer dump-autoload
+6. create env file
+ db connectivity
+ app url
+7. change in file
+ \database\seeders\DatabaseSeeder.php
+  $this->call([
+            PermissionTableSeeder::class,
+            CreateAdminUserSeeder::class,
+            // UsersTableSeeder::class,
+        ]);
+8. Check in the file "routes/web.php". If you find any duplicate/repeated routes. please remove it manually/accordingly.
+9. php artisan key:generate
+10. <b>OPTIONAL</b>Run php artisan storage:link to create the storage symlink (if you are using Vagrant with Homestead for development remember to ssh in your virtual machine and run the command from there).
+11. php artisan migrate --seed
+12. php artisan serve
