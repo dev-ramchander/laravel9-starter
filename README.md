@@ -1,4 +1,3 @@
-
 # Laravel 9 admin backend
 
 <p align="center">
@@ -88,4 +87,3 @@ php artisan serve
 ```
 
 - Its done! and we good to go. Happy `<codding>`😊
-
