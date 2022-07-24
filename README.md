@@ -1,6 +1,6 @@
 <p align="center">
 	<a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="350"></a> <a href="javaxcript:void(0)">
-    	<a href="https://spatie.be/" target="_blank"><img src="https://cdn.learnku.com/uploads/avatars/25700_1530502088.png" width="350"></a> <a href="javaxcript:void(0)">
+    	<a href="https://spatie.be/" target="_blank"><img src="https://cdn.learnku.com/uploads/avatars/25700_1530502088.png" width="150"></a> <a href="javaxcript:void(0)">
 	<a class="navbar-brand pt-0" href="https://www.creative-tim.com/live/argon-dashboard-laravel">
 <img src="https://argon-dashboard-laravel.creative-tim.com/argon/img/brand/blue.png" width="350" class="navbar-brand-img" alt="...">
 </a>
