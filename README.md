@@ -1,4 +1,13 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+
+# Laravel 9 admin backend
+
+<p align="center">
+ <a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="350"></a> <a href="javaxcript:void(0)">
+     <a href="https://spatie.be/" target="_blank"><img src="https://cdn.learnku.com/uploads/avatars/25700_1530502088.png" width="100"></a> <a href="javaxcript:void(0)">
+ <a class="navbar-brand pt-0" href="https://www.creative-tim.com/live/argon-dashboard-laravel">
+<img src="https://argon-dashboard-laravel.creative-tim.com/argon/img/brand/blue.png" width="350" class="navbar-brand-img" alt="...">
+</a>
+ </p>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
@@ -7,82 +16,76 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## About this base
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+This is Admin Backend base, You can use it if you want to start a new laravel project.<br>
+You don't need to start from scratch as you will get the following functionality/feature inbuilt.
+Such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **User roles and permission**
+- **Admin dashboard with Login, Registration**
+- **UI Template based on  [Argon](https://www.creative-tim.com/live/argon-dashboard-laravel)**
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Requirements
 
-## Learning Laravel
+- PHP version 8 and above
+- MySql
+- Composer
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Installation
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Install my-project with npm
 
-## Laravel Sponsors
+- take `pull` and `cd`to your project
+- Run following command one by one
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```sh
+composer require laravel/ui
+```
 
-### Premium Partners
+```sh
+composer require laravel-frontend-presets/argon
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+```sh
+php artisan ui argon
+```
 
-## Contributing
+```sh
+composer update or composer dump-autoload
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- create `.env` file and configure database credentials, `APP_URL` etc
+- Make Changes (mentoined below) in file `\database\seeders\DatabaseSeeder.php`
 
-## Code of Conduct
+```php
+    $this->call([
+        PermissionTableSeeder::class,
+        CreateAdminUserSeeder::class,
+        // UsersTableSeeder::class,
+    ]);
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- Check in the file `routes/web.php`, If you find any duplicate/repeated routes. please remove it manually/accordingly.
+- Run `artisan storage:link` **Only if** you are using Vagrant with Homestead for development remember to ssh in your virtual machine and run the command from there. **Else** you can skip this.
 
-## Security Vulnerabilities
+- Now run following command aganin
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```sh
+php artisan key:generate
+```
 
-## License
+```sh
+php artisan migrate --seed
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-<hr>
+```sh
+php artisan serve
+```
 
-Installaton.
+```sh
+php artisan serve
+```
 
-1. take pull and cd to your project
-2. composer require laravel/ui
-3. composer require laravel-frontend-presets/argon
-4. php artisan ui argon
-5. composer update or composer dump-autoload
-6. create env file
- db connectivity
- app url
-7. change in file
- \database\seeders\DatabaseSeeder.php
-  $this->call([
-            PermissionTableSeeder::class,
-            CreateAdminUserSeeder::class,
-            // UsersTableSeeder::class,
-        ]);
-8. Check in the file "routes/web.php". If you find any duplicate/repeated routes. please remove it manually/accordingly.
-9. php artisan key:generate
-10. <b>OPTIONAL</b>Run php artisan storage:link to create the storage symlink (if you are using Vagrant with Homestead for development remember to ssh in your virtual machine and run the command from there).
-11. php artisan migrate --seed
-12. php artisan serve
+- Its done! and we good to go. Happy `<codding>`😊
+
