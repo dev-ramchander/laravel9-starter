@@ -21,22 +21,22 @@ This is Admin Backend base, You can use it if you want to start a new laravel pr
 You don't need to start from scratch as you will get the following functionality/feature inbuilt.
 Such as:
 
-- **User roles and permission**
-- **Admin dashboard with Login, Registration**
-- **UI Template based on  [Argon](https://www.creative-tim.com/live/argon-dashboard-laravel)**
+-   **User roles and permission**
+-   **Admin dashboard with Login, Registration**
+-   **UI Template based on [Argon](https://www.creative-tim.com/live/argon-dashboard-laravel)**
 
 ## Requirements
 
-- PHP version 8 and above
-- MySql
-- Composer
+-   PHP version 8 and above
+-   MySql
+-   Composer
 
 ## Installation
 
 Install my-project with npm
 
-- take `pull` and `cd`to your project
-- Run following command one by one
+-   take `pull` and `cd`to your project
+-   Run following command one by one
 
 ```sh
 composer require laravel/ui
@@ -54,8 +54,8 @@ php artisan ui argon
 composer update or composer dump-autoload
 ```
 
-- create `.env` file and configure database credentials, `APP_URL` etc
-- Make Changes (mentoined below) in file `\database\seeders\DatabaseSeeder.php`
+-   create `.env` file and configure database credentials, `APP_URL` etc
+-   Make Changes (mentoined below) in file `\database\seeders\DatabaseSeeder.php`
 
 ```php
     $this->call([
@@ -65,10 +65,10 @@ composer update or composer dump-autoload
     ]);
 ```
 
-- Check in the file `routes/web.php`, If you find any duplicate/repeated routes. please remove it manually/accordingly.
-- Run `artisan storage:link` **Only if** you are using Vagrant with Homestead for development remember to ssh in your virtual machine and run the command from there. **Else** you can skip this.
+-   Check in the file `routes/web.php`, If you find any duplicate/repeated routes. please remove it manually/accordingly.
+-   Run `artisan storage:link` **Only if** you are using Vagrant with Homestead for development remember to ssh in your virtual machine and run the command from there. **Else** you can skip this.
 
-- Now run following command aganin
+-   Now run following command aganin
 
 ```sh
 php artisan key:generate
@@ -78,12 +78,4 @@ php artisan key:generate
 php artisan migrate --seed
 ```
 
-```sh
-php artisan serve
-```
-
-```sh
-php artisan serve
-```
-
-- Its done! and we good to go. Happy `<codding>`😊
+-   Its done! and we good to go. Happy `<codding>`😊
