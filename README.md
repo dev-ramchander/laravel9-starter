@@ -58,7 +58,6 @@ Install my-project
 - Run following command one by one
 
 ```sh
-
 composer require laravel/ui
 
 composer require laravel-frontend-presets/argon
@@ -66,7 +65,6 @@ composer require laravel-frontend-presets/argon
 php artisan ui argon
 
 composer update or composer dump-autoload
-
 ```
 
 - create `.env` file and configure database credentials, `APP_URL` etc
@@ -74,13 +72,11 @@ composer update or composer dump-autoload
 - Make Changes (mentoined below) in file `\database\seeders\DatabaseSeeder.php`
 
 ```php
-
 $this->call([
     PermissionTableSeeder::class,
     CreateAdminUserSeeder::class,
     // UsersTableSeeder::class,
 ]);
-
 ```
 
 - Check in the file `routes/web.php`, If you find any duplicate/repeated routes. please remove it manually/accordingly.
@@ -90,10 +86,8 @@ $this->call([
 - Now run following command again
 
 ```sh
-
 php artisan key:generate
 php artisan migrate --seed
-
 ```
 
 - Now `pull` from master branch again once `git pull origin master`
