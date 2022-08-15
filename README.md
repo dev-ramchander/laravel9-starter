@@ -35,31 +35,17 @@ Install this starter
 - Run following command one by one
 
 ```sh
-composer require laravel/ui
-composer require laravel-frontend-presets/argon
-php artisan ui argon
 composer update or composer dump-autoload
 ```
 
 - create `.env` file and configure database credentials, `APP_URL` etc
-- Make Changes (mentoined below) in file `\database\seeders\DatabaseSeeder.php`
 
-```php
-$this->call([
-    PermissionTableSeeder::class,
-    CreateAdminUserSeeder::class,
-    // UsersTableSeeder::class,
-]);
-```
-
-- Check in the file `routes/web.php`, If you find any duplicate/repeated routes. please remove it manually/accordingly.
-- Run `php artisan storage:link`  **Only if** you are using Vagrant with Homestead for development remember to ssh in your virtual machine and run the command from there. **Else** you can skip this.
 - Now run following command again
 
 ```sh
 php artisan key:generate
 php artisan migrate --seed
+php artisan serve
 ```
 
-- Now `pull` from master branch again once `git pull origin master`
 - Its done! and we good to go. Happy `<codding>`😊
