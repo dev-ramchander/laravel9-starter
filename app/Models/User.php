@@ -17,7 +17,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    const DEFAULT_PAGE_LIMIT = 2;
+    const DEFAULT_PAGE_LIMIT = 10;
     protected $fillable = [
         'name',
         'email',

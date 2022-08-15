@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use DB;
+use App\Models\User;
 
 class RoleController extends Controller
 {
@@ -16,6 +17,8 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    const DEFAULT_PAGE_LIMIT = 10;
+
     function __construct()
     {
          $this->middleware('permission:role-list|role-create|role-edit|role-delete', ['only' => ['index','store']]);
@@ -31,8 +34,9 @@ class RoleController extends Controller
      */
     public function index(Request $request)
     {
-        $roles = Role::orderBy('id','DESC')->paginate(5);
-        return view('roles.index',compact('roles'))
+        $roles = Role::orderBy('id','ASC')->paginate(self::DEFAULT_PAGE_LIMIT);
+        $users = User::paginate(User::DEFAULT_PAGE_LIMIT);
+        return view('roles.index',compact('roles', 'users'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 

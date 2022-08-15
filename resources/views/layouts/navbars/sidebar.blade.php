@@ -111,6 +111,29 @@
                         </ul>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ activeMenu('roles', 'text-danger') }}" href="#navbar-examples"
+                        data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
+                        <i class="ni ni-settings-gear-65 text-primary"></i>
+                        <span class="nav-link-text">{{ __('Settings') }}</span>
+                    </a>
+
+                    <div class="collapse {{ activeMenu('roles', 'show') }}" id="navbar-examples">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link {{ activeMenu('roles', 'text-primary') }}" {{-- <a class="nav-link {{ request()->is('roles') ? 'text-primary' : '' }}" --}}
+                                    href="{{ route('roles.index') }}">
+                                    {{ __('Roles') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('user.index') }}">
+                                    {{ __('Permission') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('icons') }}">
