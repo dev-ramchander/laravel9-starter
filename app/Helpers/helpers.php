@@ -29,10 +29,12 @@ if (! function_exists('convertMdyToYmd')) {
 if (! function_exists('activeMenu')) {
     function activeMenu($uri = '', $strToreturn = null)
     {
-        $active = '';
-        if (Request::is(Request::segment(1) . '/' . $uri . '/*') || Request::is(Request::segment(1) . '/' . $uri) || Request::is($uri)) {
-            $active = 'active';
+        if ( Request::is($uri) ) {
+            // $active = 'active';
+            return ( $strToreturn == null ) ? 'active' : $strToreturn ;
         }
-        return ( $strToreturn != null ) ? $strToreturn : $active;
+        return false;
+        // if($strToreturn == null) { return $strToreturn; }
+        // else { return $active;}
     }
 }
