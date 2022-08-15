@@ -2,33 +2,70 @@
 
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2> Show Role</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('roles.index') }}"> Back</a>
-            </div>
-        </div>
-    </div>
+    @include('layouts.common.jubotron')
 
+    <div class="container-fluid mt--7">
+        <div class="row">
+            <div class="col">
+                <div class="card shadow">
+                    <div class="card-header border-0">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h3 class="mb-0">Show Role</h3>
+                            </div>
+                            <div class="col-4 text-right">
+                                <a href="{{ route('roles.index') }}" class="btn btn-sm btn-primary">Back</a>
+                            </div>
+                        </div>
+                    </div>
 
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Name:</strong>
-                {{ $role->name }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Permissions:</strong>
-                @if (!empty($rolePermissions))
-                    @foreach ($rolePermissions as $v)
-                        <label class="label label-success">{{ $v->name }},</label>
-                    @endforeach
-                @endif
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Permissions</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a class="btn btn-outline-primary"
+                                            href="{{ route('roles.edit', $role->id) }}"><strong>{{ $role->name }}</a>
+                                    </td>
+                                    <td>
+                                        @forelse ($rolePermissions as $v)
+                                            <button type="button"
+                                                class="btn-sm btn btn-outline-default">{{ $v->name }}</button>
+
+                                        @empty
+                                            <span class="badge badge-pill badge-danger">permission not
+                                                found</span>
+                                        @endforelse
+                                    </td>
+                                    <td class="text-right">
+                                        <div class="dropdown">
+                                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                <a class="dropdown-item"
+                                                    href="{{ route('roles.edit', $role->id) }}"><strong>Edit</a>
+                                                @can('role-delete')
+                                                    {!! Form::open(['method' => 'DELETE', 'route' => ['roles.destroy', $role->id], 'style' => 'display:inline']) !!}
+                                                    {!! Form::submit('Delete', ['class' => 'btn btn-outline-danger dropdown-item text-danger']) !!}
+                                                    {!! Form::close() !!}
+                                                @endcan
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
