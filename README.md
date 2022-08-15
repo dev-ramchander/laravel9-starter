@@ -32,7 +32,7 @@ Such as:
 Install this starter
 
 - Do `clone` and `cd`to your project directory
-- Run following command one by one
+- Run following command
 
 ```sh
 composer update or composer dump-autoload
