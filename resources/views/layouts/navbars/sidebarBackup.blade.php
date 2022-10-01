@@ -83,42 +83,7 @@
                 </div>
             </form>
             <!-- Navigation -->
-            <ul class="navbar-nav text-capitalize">
-                @foreach (adminSideBarMenu() as $menu)
-                    @if ( $menu['is_dropdown_menu'] )
-                        <li class="nav-item font-weight-bold ddasddasda">
-                            <a class="nav-link {{ activeMenu('roles', 'text-danger') }}" href="#navbar-examples"
-                                data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
-                                <i class="ni ni-settings-gear-65 text-primary"></i>
-                                <span class="nav-link-text">{{ __($menu['name']) }}</span>
-                            </a>
-
-                            <div class="collapse {{ activeMenu('roles', 'show') }}" id="navbar-examples">
-                                <ul class="nav nav-sm flex-column">
-                                    @foreach (adminSideBarMenu( $menu['id'] ) as $dropDownMenu)
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{{ URL::to($dropDownMenu['slug'] ) }}">
-                                                {{ __($dropDownMenu['name']) }}
-                                            </a>
-                                        </li>
-                                    @endforeach
-
-
-                                </ul>
-                            </div>
-                        </li>
-                    @elseif( !$menu['parent_menu_id'] )
-                        <li class="nav-item font-weight-bold">
-                            <a class="nav-link" href="{{ URL::to($menu['slug'] ) }}">
-                                <i class="ni ni-tv-2 text-primary"></i>
-                                {{ __($menu['name']) }}
-                            </a>
-                        </li>
-                    @endif
-                @endforeach
-            </ul>
-
-            {{-- <ul class="navbar-nav">
+            <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('home') }}">
                         <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
@@ -156,7 +121,7 @@
                     <div class="collapse {{ activeMenu('roles', 'show') }}" id="navbar-examples">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a class="nav-link {{ activeMenu('roles', 'text-primary') }}"
+                                <a class="nav-link {{ activeMenu('roles', 'text-primary') }}" {{-- <a class="nav-link {{ request()->is('roles') ? 'text-primary' : '' }}" --}}
                                     href="{{ route('roles.index') }}">
                                     {{ __('Roles') }}
                                 </a>
@@ -197,7 +162,7 @@
                         <i class="ni ni-cloud-download-95"></i> Upgrade to PRO
                     </a>
                 </li>
-            </ul> --}}
+            </ul>
             <!-- Divider -->
             <hr class="my-3">
             <!-- Heading -->
