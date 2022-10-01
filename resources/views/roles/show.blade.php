@@ -20,21 +20,21 @@
                     </div>
 
                     <div class="table-responsive">
-                        <table class="table align-items-center table-flush">
+                        <table class="table align-items-center table-flush table-fit custom-table">
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col">Name</th>
-                                    <th scope="col">Permissions</th>
+                                    <th scope="col" class="ndelemet">Permissions</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>
-                                        <a class="btn btn-outline-primary"
+                                        <a class="btn text-uppercase btn-sm btn-outline-primary"
                                             href="{{ route('roles.edit', $role->id) }}"><strong>{{ $role->name }}</a>
                                     </td>
-                                    <td>
+                                    <td class="ndelemet">
                                         @forelse ($rolePermissions as $v)
                                             <button type="button"
                                                 class="btn-sm btn btn-outline-default">{{ $v->name }}</button>

@@ -41,7 +41,7 @@
                                 @forelse ($roles as $role)
                                     <tr>
                                         <td>{{ ++$i }}</td>
-                                        <td><a class="btn btn-outline-primary"
+                                        <td><a class="btn btn-sm text-uppercase btn-outline-primary"
                                                 href="{{ route('roles.show', $role->id) }}"><strong>{{ $role->name }}</a>
                                         </td>
                                         <td>{{ $role->created_at->format('d-M-Y') }}</td>
