@@ -53,8 +53,8 @@ class AdminSideBarMenuSeeder extends Seeder
                 'created_at' => now(), // settings
             ],
             [
-                'name' => 'permission',
-                'slug' => '/permission',
+                'name' => 'permissions',
+                'slug' => '/permissions',
                 'status' => 1,
                 'parent_menu_id' => 3, // settings
                 'is_dropdown_menu' => 0, // settings
