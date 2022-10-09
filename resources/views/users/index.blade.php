@@ -25,6 +25,8 @@
                                 <tr>
                                     <th scope="col">Name</th>
                                     <th scope="col">Email</th>
+                                    <th scope="col">Role</th>
+                                    <th scope="col">Access</th>
                                     <th scope="col">Creation Date</th>
                                     <th scope="col"></th>
                                 </tr>
@@ -35,6 +37,21 @@
                                         <td>{{ $user->name }}</td>
                                         <td>
                                             <a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
+                                        </td>
+                                        <td>
+                                            <span class="{{ userRoleClass( $user->roles->pluck('name')[0] ) }} text-12px">{{ $user->roles->pluck('name')[0] }}</span>
+                                        </td>
+                                        <td>
+                                            @forelse ($user->getAllPermissions() as $key => $permission)
+                                                @if ( $key > 2)
+                                                     <a href="javascript:void(0);" class="">View all</a>
+                                                    @break
+                                                @else
+                                                    <span class="btn btn-secondary btn-sm">{{ $permission->name }}</span>
+                                                @endif
+                                            @empty
+                                                <span class="">no permission found</span>
+                                            @endforelse
                                         </td>
                                         <td>{{ $user->created_at->format('d-M-Y') }}</td>
                                         <td class="text-right">
