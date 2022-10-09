@@ -31,16 +31,14 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <a class="btn text-uppercase btn-sm btn-outline-primary"
+                                        <a class="badge badge-info text-uppercase text-12px text-uppercase"
                                             href="{{ route('roles.edit', $role->id) }}"><strong>{{ $role->name }}</a>
                                     </td>
                                     <td class="ndelemet">
-                                        @forelse ($rolePermissions as $v)
-                                            <button type="button"
-                                                class="btn-sm btn btn-outline-default">{{ $v->name }}</button>
-
+                                        @forelse ($rolePermissions as $permission)
+                                            <span class="badge badge-default text-12px">{{ $permission->name }}</span>
                                         @empty
-                                            <span class="badge badge-pill badge-danger">permission not
+                                            <span class="badge badge-pill badge-danger text-12px">permission not
                                                 found</span>
                                         @endforelse
                                     </td>

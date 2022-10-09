@@ -68,9 +68,9 @@ class PermissionController extends Controller
      */
     public function show($id)
     {
-        $role = Permission::find($id);
+        $permission = Permission::find($id);
 
-        return view('permissions.show',compact('role',));
+        return view('permissions.show',compact('permission',));
     }
 
     /**
@@ -81,13 +81,7 @@ class PermissionController extends Controller
      */
     public function edit($id)
     {
-        $role = Role::find($id);
-        $permission = Permission::get();
-        $rolePermissions = DB::table("role_has_permissions")->where("role_has_permissions.role_id",$id)
-            ->pluck('role_has_permissions.permission_id','role_has_permissions.permission_id')
-            ->all();
 
-        return view('roles.edit',compact('role','permission','rolePermissions'));
     }
 
     /**
@@ -99,19 +93,7 @@ class PermissionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'permission' => 'required',
-        ]);
 
-        $role = Role::find($id);
-        $role->name = $request->input('name');
-        $role->save();
-
-        $role->syncPermissions($request->input('permission'));
-
-        return redirect()->route('roles.index')
-                        ->with('success','Role updated successfully');
     }
     /**
      * Remove the specified resource from storage.
@@ -122,13 +104,6 @@ class PermissionController extends Controller
     public function destroy($id)
     {
 
-        if( $id === '1' || $id === 1 ||
-            Permission::where('id', $id)->value('name') === 'administration'
-        ) {
-            return redirect()->back()->with('error', 'This Permission can\'t be deleted');
-        }
-        Permission::where('id',$id)->delete();
-        return redirect()->route('permissions.index')
-                        ->with('success','Permissions deleted successfully.');
+
     }
 }

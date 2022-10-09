@@ -40,7 +40,6 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Creation Date</th>
-                                    <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -48,28 +47,13 @@
                                     <tr>
                                         <td>{{ ++$i }}</td>
                                         <td>
-                                            <button class="btn btn-sm text-uppercase btn-outline-primary""><strong>{{ $permission->name }}</strong></button>
+                                            <span class="badge badge-info text-12px">{{ $permission->name }}</span>
                                         </td>
                                         <td>{{ $permission->created_at->format('d-M-Y') }}</td>
-                                        <td class="text-right">
-                                            <div class="dropdown">
-                                                <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
-                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="fas fa-ellipsis-v"></i>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                    @can('administration')
-                                                        {!! Form::open(['method' => 'DELETE', 'route' => ['permissions.destroy', $permission->id], 'style' => 'display:inline']) !!}
-                                                        {!! Form::submit('Delete', ['class' => 'btn btn-outline-danger dropdown-item text-danger']) !!}
-                                                        {!! Form::close() !!}
-                                                    @endcan
-                                                </div>
-                                            </div>
-                                        </td>
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="3" class="text-center">Roles not found</td>
+                                        <td colspan="3" class="text-center">Permissions not found</td>
                                     </tr>
                                 @endforelse
                             </tbody>

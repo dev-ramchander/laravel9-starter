@@ -41,13 +41,13 @@
                                 @forelse ($roles as $role)
                                     <tr>
                                         <td>{{ ++$i }}</td>
-                                        <td><a class="btn btn-sm text-uppercase btn-outline-primary"
-                                                href="{{ route('roles.show', $role->id) }}"><strong>{{ $role->name }}</a>
+                                        <td><a class="badge badge-info text-uppercase text-12px" href="{{ route('roles.show', $role->id) }}">
+                                            <span>{{ $role->name }}</span></a>
                                         </td>
                                         <td>{{ $role->created_at->format('d-M-Y') }}</td>
                                         <td class="text-right">
                                             <div class="dropdown">
-                                                <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
+                                                <a class="badge badge-info" href="#" role="button"
                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <i class="fas fa-ellipsis-v"></i>
                                                 </a>

@@ -63,3 +63,26 @@ if (!function_exists('adminSideBarMenu')) {
         return false;
     }
 }
+
+if (!function_exists('userRoleClass')) {
+    function userRoleClass($role = null)
+    {
+        switch ($role) {
+            case "admin":
+                return "badge badge-danger";
+                break;
+            case "disributor":
+                return "badge badge-primary";
+                break;
+            case "retailor":
+                return "badge badge-info";
+                break;
+            case "customer":
+                return "badge badge-warning";
+                break;
+            default:
+                return "badge badge-secondary";
+            return false;
+        }
+    }
+}
